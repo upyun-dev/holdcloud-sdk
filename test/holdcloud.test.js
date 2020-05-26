@@ -1,11 +1,11 @@
 const expect = require('chai').expect;
 const _ = require('lodash');
 const HoldCloud = require('../index');
-const username = '**';
-const password = '**';
+const username = 'bo.yang@upai.com';
+const password = 'bo.yang@upai';
 const baseUrl = 'https://console.holdcloud.com/api/v1';
 const projectId = 89;
-const appId = 133;
+const appId = 149;
 
 describe('holdcloud test', () => {
   describe('post', () => {
@@ -19,7 +19,7 @@ describe('holdcloud test', () => {
   describe('get', () => {
     it('获取指定项目下的服务列表', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);
-      const res = await holdcloud.listStatelessService(projectId);
+      const res = await holdcloud.listUnionservices(projectId);
       expect(res).to.be.a('object');
       expect(res.items[0].id).to.be.a('number');
       expect(res.items[0].kind).to.be.a('string');
@@ -38,7 +38,7 @@ describe('holdcloud test', () => {
         kind: "Deployment",
         name: `test-${_.random(0, 100)}`,
       }
-      const res = await holdcloud.createStatelesscontainerApps(projectId, options);
+      const res = await holdcloud.createContainerApp(projectId, options);
       expect(res.id).to.be.a('number');
     });
   });
@@ -65,23 +65,23 @@ describe('holdcloud test', () => {
         replicas: 1,
         volumes: [],
       }
-      const res = await holdcloud.createStatelessService(appId, options);
+      const res = await holdcloud.createInstances(appId, options);
       expect(res).to.eql({});
     });
   });
   describe('post', () => {
     it('重新启动指定服务', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);
-      const res = await holdcloud.restartStatelessService(appId);
-      expect(res).to.eql({});
+      const res = await holdcloud.restartContainerApp(appId);
+      expect(res).to.be.a('string');
     });
   })
 
   describe('delete', () => {
     it('删除容器服务', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);
-      const res = await holdcloud.destroyStatelessService(appId);
-      expect(res).to.be.a('object');
+      const res = await holdcloud.destroyContainerApp(appId);
+      expect(res).to.be.a('string');
     });
   });
 })

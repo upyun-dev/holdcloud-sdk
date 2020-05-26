@@ -20,7 +20,7 @@ const holdcloud = new HoldCloud(username, password, baseUrl);
  * @param   {String}  projectId    project id
  * @return  {array}         			 list
  */
-holdcloud.listStatelessService(projectId);
+holdcloud.listUnionservices(projectId);
 ```
 
 **Create the container service under the specified project**
@@ -31,7 +31,7 @@ holdcloud.listStatelessService(projectId);
  * @param   {Object}   options  	app param
  * @return  {integer}         		app id
  */
-holdcloud.createStatelesscontainerApps(projectId, options);
+holdcloud.createContainerApp(projectId, options);
 ```
 
 **Creating a container instance**
@@ -42,7 +42,7 @@ holdcloud.createStatelesscontainerApps(projectId, options);
  * @param   {Object}  	options  instance param
  * @return  {Object}           	 {}
  */
-holdcloud.createStatelessService(appId);
+holdcloud.createInstances(appId);
 ```
 
 **Restart the specified service**
@@ -51,7 +51,7 @@ holdcloud.createStatelessService(appId);
 /**
  * @param  {integer} appId  [app id]
  */
-holdcloud.restartStatelessService(appId);
+holdcloud.restartContainerApp(appId);
 ```
 
 **Delete container specified service**
@@ -60,7 +60,7 @@ holdcloud.restartStatelessService(appId);
 /**
  * @param  {integer} appId  [app id]
  */
-holdcloud.destroyStatelessService(appId);
+holdcloud.destroyContainerApp(appId);
 ```
 
 ### Tests
@@ -81,4 +81,5 @@ const appId = 133;
 ```
 npm run test
 ```
+
 
