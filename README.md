@@ -1,9 +1,6 @@
 ## holdcloud sdk package
 
-### Install using npm:
-```
-npm i holdcloud-sdk --save
-```
+### Install
 
 ### import and constructor
 ```javascript
