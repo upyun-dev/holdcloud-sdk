@@ -1,0 +1,29 @@
+{
+  "name": "holdcloud-sdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "对luffy进行封装",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "jest": "^26.0.1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/upyun-dev/holdcloud-sdk.git"
+  },
+  "keywords": [
+    "holdcloud"
+  ]
+}
