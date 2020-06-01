@@ -1,6 +1,6 @@
 {
   "name": "holdcloud-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "license": "MIT",
   "description": "对luffy进行封装",
