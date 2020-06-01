@@ -69,6 +69,15 @@ describe('holdcloud test', () => {
       expect(res).to.eql({});
     });
   });
+
+  describe('get', () => {
+    it('获取实例状态', async function () {
+      const holdcloud = new HoldCloud(username, password, baseUrl);
+      const res = await holdcloud.getContainerAppState(appId);
+      expect(res).to.be.a('object');
+    });
+  })
+
   describe('post', () => {
     it('重新启动指定服务', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);

@@ -3,6 +3,7 @@
 ### Install
 
 ### import and constructor
+
 ```javascript
 const HoldCloud = require('holdcloud-sdk');
 const holdcloud = new HoldCloud(username, password, baseUrl);
@@ -10,39 +11,49 @@ const holdcloud = new HoldCloud(username, password, baseUrl);
 
 ### methods
 
-**Gets a list of services under the specified project**
+#### Gets a list of services under the specified project
 
 ```javascript
 /**
  * @param   {String}  projectId    project id
- * @return  {array}         			 list
+ * @return  {array}             list
  */
 holdcloud.listUnionservices(projectId);
 ```
 
-**Create the container service under the specified project**
+#### Create the container service under the specified project
 
 ```javascript
 /**
- * @param   {String}}  project  	project id
- * @param   {Object}   options  	app param
- * @return  {integer}         		app id
+ * @param   {String}}  project   project id
+ * @param   {Object}   options   app param
+ * @return  {integer}           app id
  */
 holdcloud.createContainerApp(projectId, options);
 ```
 
-**Creating a container instance**
+#### Creating a container instance
 
 ```javascript
 /**
- * @param   {integer}  	appId    app id
- * @param   {Object}  	options  instance param
- * @return  {Object}           	 {}
+ * @param   {integer}   appId    app id
+ * @param   {Object}   options  instance param
+ * @return  {Object}             {}
  */
 holdcloud.createInstances(appId);
 ```
 
-**Restart the specified service**
+#### get container instance status
+
+```javascript
+/**
+ * @param   {integer}  appId    服务 id
+ * @return  {Object}           {state: "Creating"}
+ */
+holdcloud.getContainerAppState(appId);
+```
+
+#### Restart the specified service
 
 ```javascript
 /**
@@ -51,7 +62,7 @@ holdcloud.createInstances(appId);
 holdcloud.restartContainerApp(appId);
 ```
 
-**Delete container specified service**
+#### Delete container specified service
 
 ```javascript
 /**
@@ -61,9 +72,10 @@ holdcloud.destroyContainerApp(appId);
 ```
 
 ### Tests
+
 `/test/holdcloud.test.js`,
 
-**constructor**
+#### constructor
 
 ```javascript
 const username = '**@gmail.com';
@@ -73,10 +85,8 @@ const projectId = 89;
 const appId = 133;
 ```
 
-**run**
+#### run
 
-```
+```bash
 npm run test
 ```
-
-
