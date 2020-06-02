@@ -40,7 +40,18 @@ holdcloud.createContainerApp(projectId, options);
  * @param   {Object}   options  instance param
  * @return  {Object}             {}
  */
-holdcloud.createInstances(appId);
+holdcloud.createContainerAppInstances(appId);
+```
+
+#### Check to see if the container app name is repeated
+
+```javascript
+/**
+ * @param   {string}  projectId  project Id
+ * @param   {string}  name       container name
+ * @return  {object}             {code: 400, id: 233} || {code: 200, id: null}
+ */
+holdcloud.checkContainerappsName(projectId, name);
 ```
 
 #### get container instance status

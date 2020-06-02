@@ -1,11 +1,11 @@
 const expect = require('chai').expect;
 const _ = require('lodash');
 const HoldCloud = require('../index');
-const username = '**';
-const password = '**';
+const username = 'bo.yang@upai.com';
+const password = 'bo.yang@upai';
 const baseUrl = 'https://console.holdcloud.com/api/v1';
 const projectId = 89;
-const appId = 149;
+const appId = 479;
 
 describe('holdcloud test', () => {
   describe('post', () => {
@@ -43,6 +43,15 @@ describe('holdcloud test', () => {
     });
   });
 
+  describe('get', () => {
+    it('检查名字是否重复', async function () {
+      const holdcloud = new HoldCloud(username, password, baseUrl);
+      const  name = 'ingest-01';
+      const res = await holdcloud.checkContainerappsName(projectId, name);
+      expect(res).to.be.a('object');
+    });
+  });
+
   describe('post', () => {
     it('创建容器实例实例', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);
@@ -65,7 +74,7 @@ describe('holdcloud test', () => {
         replicas: 1,
         volumes: [],
       }
-      const res = await holdcloud.createInstances(appId, options);
+      const res = await holdcloud.createContainerAppInstances(appId, options);
       expect(res).to.eql({});
     });
   });
