@@ -34,10 +34,10 @@ describe('holdcloud test', () => {
     it('在指定项目下创建容器服务', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);
       const options = {
-        description: "string",
-        kind: "Deployment",
+        description: 'string',
+        kind: 'Deployment',
         name: `test-${_.random(0, 100)}`,
-      }
+      };
       const res = await holdcloud.createContainerApp(projectId, options);
       expect(res.id).to.be.a('number');
     });
@@ -46,7 +46,7 @@ describe('holdcloud test', () => {
   describe('get', () => {
     it('检查名字是否重复', async function () {
       const holdcloud = new HoldCloud(username, password, baseUrl);
-      const  name = 'ingest-01';
+      const name = 'ingest-01';
       const res = await holdcloud.checkContainerappsName(projectId, name);
       expect(res).to.be.a('object');
     });
@@ -57,23 +57,23 @@ describe('holdcloud test', () => {
       const holdcloud = new HoldCloud(username, password, baseUrl);
       const options = {
         container: {
-          command: `'-c',command`,
+          command: '\'-c\',command',
           cpuLimit: 0.1,
           cpuRequest: 0.1,
           envFromConfig: [],
           envs: {},
-          image: "ffmpeg:0.1.3",
+          image: 'ffmpeg:0.1.3',
           imagePullPolicyAlways: true,
           memoryLimit: 1073741824,
           memoryRequest: 1073741824,
           ports: [],
-          registryType: "Group",
+          registryType: 'Group',
         },
         healthCheck: {},
         minReadySeconds: 5,
         replicas: 1,
         volumes: [],
-      }
+      };
       const res = await holdcloud.createContainerAppInstances(appId, options);
       expect(res).to.eql({});
     });
@@ -85,7 +85,7 @@ describe('holdcloud test', () => {
       const res = await holdcloud.getContainerAppState(appId);
       expect(res).to.be.a('object');
     });
-  })
+  });
 
   describe('post', () => {
     it('重新启动指定服务', async function () {
@@ -93,7 +93,7 @@ describe('holdcloud test', () => {
       const res = await holdcloud.restartContainerApp(appId);
       expect(res).to.be.a('string');
     });
-  })
+  });
 
   describe('delete', () => {
     it('删除容器服务', async function () {
@@ -102,7 +102,6 @@ describe('holdcloud test', () => {
       expect(res).to.be.a('string');
     });
   });
-})
-
+});
 
 
